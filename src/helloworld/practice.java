@@ -9,7 +9,7 @@ public class practice
 	{
 		int i,j;
 		//lajiwangdao
-		//wrwr
+		//wrwree23
 		int a=-1,b=-1;
 
 		for(i=0;i<m;i++)
