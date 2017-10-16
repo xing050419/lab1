@@ -11,7 +11,7 @@ public class practice
 		//lajiwangdao
 		//wrwree23
 		int a=-1,b=-1;
-
+        /*51651*/
 		for(i=0;i<m;i++)
 		{
 			if(word1.equals(str2[i]))
@@ -280,6 +280,7 @@ public class practice
         		num=cin.nextInt();
     		}
     		//输出图
+    		//shuch
     		if(num==5)
     		{
     			File file = new File("d:\\array.dot");  //存放数组数据的文件
