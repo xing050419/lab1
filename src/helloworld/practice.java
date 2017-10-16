@@ -2,6 +2,11 @@ package helloworld;
 
 import java.io .*;
 import java.util.*;
+/*change one*/
+<<<<<<<HEAD
+/*edit on branch B1*/
+/*edit on branch C4*/
+>>>>>>>C4
 public class practice
 {
 	int a,b,x,y;
@@ -9,7 +14,7 @@ public class practice
 	{
 		int i,j;
 		//lajiwangdao
-		//wrwree23
+		//wrwree23edit on branch B1
 		int a=-1,b=-1;
         /*51651*/
 		for(i=0;i<m;i++)
