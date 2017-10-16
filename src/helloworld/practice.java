@@ -3,10 +3,10 @@ package helloworld;
 import java.io .*;
 import java.util.*;
 /*change one*/
-<<<<<<<HEAD
+
 /*edit on branch B1*/
 /*edit on branch C4*/
->>>>>>>C4
+
 public class practice
 {
 	int a,b,x,y;
