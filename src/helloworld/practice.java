@@ -8,6 +8,7 @@ public class practice
 	static void queryBridgeWords(String word1, String word2,int map[][],String str2[],int m)
 	{
 		int i,j;
+		//lajiwangdao
 		int a=-1,b=-1;
 		
 		for(i=0;i<m;i++)
