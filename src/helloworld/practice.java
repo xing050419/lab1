@@ -126,7 +126,10 @@ public class practice {
 		}
 		cin.close();
 	}
-
+	/**
+	 * good
+	 * 
+	 **/
 	public static void main(String[] args) throws IOException {
 		Scanner cin = new Scanner(System.in);
 		InputStreamReader reader = null;
