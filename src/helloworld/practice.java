@@ -5,7 +5,10 @@ import java.util.*;
 
 public class practice {
 	int a, b, x, y;
-
+	static int[][] map;
+	static String[] str2;
+	static int m;
+	static int z;
   static void queryBridgeWords(String word1, String word2, int[][] map, String[] str2, int m) {
 		int i, j;
 		// lajiwangdao
@@ -36,7 +39,7 @@ public class practice {
 		}
 	}
 
-	static void calcShortestPath(String word1, String word2, int map[][], String str2[], int m) {
+	static int calcShortestPath(String word1, String word2, int map[][], String str2[], int m) {
 		int i, j;
 		int mappath[][] = new int[m][m];
 		int a = 0, b = 0;
@@ -66,14 +69,18 @@ public class practice {
 					}
 				}
 		}
+		/*
 		for (i = 0; i < m; i++) {
-			for (j = 0; j < m; j++)
+			for (j = 0; j < m; j++) 
 				System.out.print(A[i][j] + " ");
 			System.out.println("");
 		}
+		*/
 		System.out.println(A[a][b]);
+		z=A[a][b];
 		System.out.print(str2[a]);
 		pat(mappath, a, b, str2);
+		return z;
 
 	}
 
@@ -88,7 +95,6 @@ public class practice {
 			pat(mappath, mappath[a][b], b, str2);
 
 		}
-
 	}
 
 	static void randomWalk(String word11, int map[][], int m, String str2[], int map2[][]) {
@@ -152,19 +158,20 @@ public class practice {
 				tr.add(str1[i]);
 
 			}
-			String[] str2 = new String[str1.length];
+			str2 = new String[str1.length];
 			for (i = 0; i < str2.length; i++) {
 				str2[i] = tr.pollFirst();
 				if (str2[i] == null)
 					break;
 			}
 
-			int m = i;
+			m = i;
 			for (i = 0; i < m; i++) {
 				System.out.println(str2[i]);
 			}
+
 			//
-			int[][] map = new int[m][m];
+			map = new int[m][m];
 			int mi = -1, mj;
 			for (i = 0; i < str1.length; i++) {
 				for (j = 0; j < m; j++) {
@@ -175,6 +182,7 @@ public class practice {
 					}
 				}
 			}
+			
 			int[][] map2 = new int[m][m];
 			for (i = 0; i < m; i++) {
 				for (j = 0; j < m; j++) {
