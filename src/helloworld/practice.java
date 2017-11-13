@@ -5,9 +5,13 @@ import java.util.*;
 
 public class practice {
 	int a, b, x, y;
-
-  static void queryBridgeWords(String word1, String word2, int[][] map, String[] str2, int m) {
+	static int[][] map;
+	static String[] str2;
+	static int m;
+	static int z;
+  static String queryBridgeWords(String word1, String word2, int[][] map, String[] str2, int m) {
 		int i, j;
+		String wordm="NULL";
 		// lajiwangdao
 		// wrwree23
 		int a = -1, b = -1;
@@ -15,31 +19,31 @@ public class practice {
 		for (i = 0; i < m; i++) {
 			if (word1.equals(str2[i])) {
 				a = i;
+			}
+			if (word2.equals(str2[i])) {
 				b = i;
 			}
 		}
 		if (a == -1 || b == -1) {
 			System.out.println("error!");
+			//return str
 		} else {
-			if (a != 0)
+			//if (a != 0)
 				for (i = 0; i < m; i++) {
-					if (map[a][i] == 1) {
-						if (map[i][b] != 0) {
-							System.out.println(str2[i]);
-						} else {
-							System.out.println("null");
-
-						}
+					if ((map[a][i] != 0)&&(map[i][b] != 0)) {
+						System.out.println(str2[i]);
+						wordm=str2[i];
 					}
-
 				}
 		}
+		return wordm;
 	}
 
-	static void calcShortestPath(String word1, String word2, int map[][], String str2[], int m) {
+	@SuppressWarnings("null")
+	static int calcShortestPath(String word1, String word2, int map[][], String str2[], int m) {
 		int i, j;
 		int mappath[][] = new int[m][m];
-		int a = 0, b = 0;
+		int a = -1, b = -1;
 		for (i = 0; i < m; i++) {
 			if (word1.equals(str2[i])) {
 				a = i;
@@ -47,6 +51,11 @@ public class practice {
 			if (word2.equals(str2[i])) {
 				b = i;
 			}
+		}
+		if(a==-1||b==-1)
+		{
+			System.out.println("Your input is illegal! Return main!");
+			return -1;
 		}
 		int A[][] = map;
 		for (i = 0; i < m; i++)
@@ -66,14 +75,18 @@ public class practice {
 					}
 				}
 		}
+		/*
 		for (i = 0; i < m; i++) {
-			for (j = 0; j < m; j++)
+			for (j = 0; j < m; j++) 
 				System.out.print(A[i][j] + " ");
 			System.out.println("");
 		}
+		*/
 		System.out.println(A[a][b]);
+		z=A[a][b];
 		System.out.print(str2[a]);
 		pat(mappath, a, b, str2);
+		return z;
 
 	}
 
@@ -88,7 +101,6 @@ public class practice {
 			pat(mappath, mappath[a][b], b, str2);
 
 		}
-
 	}
 
 	static void randomWalk(String word11, int map[][], int m, String str2[], int map2[][]) {
@@ -152,19 +164,20 @@ public class practice {
 				tr.add(str1[i]);
 
 			}
-			String[] str2 = new String[str1.length];
+			str2 = new String[str1.length];
 			for (i = 0; i < str2.length; i++) {
 				str2[i] = tr.pollFirst();
 				if (str2[i] == null)
 					break;
 			}
 
-			int m = i;
+			m = i;
 			for (i = 0; i < m; i++) {
 				System.out.println(str2[i]);
 			}
+
 			//
-			int[][] map = new int[m][m];
+			map = new int[m][m];
 			int mi = -1, mj;
 			for (i = 0; i < str1.length; i++) {
 				for (j = 0; j < m; j++) {
@@ -175,6 +188,7 @@ public class practice {
 					}
 				}
 			}
+			
 			int[][] map2 = new int[m][m];
 			for (i = 0; i < m; i++) {
 				for (j = 0; j < m; j++) {
