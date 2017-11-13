@@ -39,6 +39,7 @@ public class practice {
 		}
 	}
 
+	@SuppressWarnings("null")
 	static int calcShortestPath(String word1, String word2, int map[][], String str2[], int m) {
 		int i, j;
 		int mappath[][] = new int[m][m];
@@ -50,6 +51,11 @@ public class practice {
 			if (word2.equals(str2[i])) {
 				b = i;
 			}
+		}
+		if(a==0||b==0)
+		{
+			System.out.println("Your input is illegal! Return main!");
+			return -1;
 		}
 		int A[][] = map;
 		for (i = 0; i < m; i++)

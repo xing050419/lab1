@@ -63,8 +63,8 @@ public class practiceTest {
 				}
 			}
 		}
-		int num=practice.calcShortestPath("how", "line",map, str2,m);
-		assertEquals(13, num);
+		int num=practice.calcShortestPath("line", "file",map, str2,m);
+		assertEquals(2, num);
 		//fail("Not yet implemented");
 	}
 
