@@ -9,37 +9,36 @@ public class practice {
 	static String[] str2;
 	static int m;
 	static int z;
-  static String queryBridgeWords(String word1, String word2, int[][] map, String[] str2, int m) {
-		int i, j;
-		String wordm="NULL";
-		// lajiwangdao
-		// wrwree23
-		int a = -1, b = -1;
-		/* 51651 */
-		for (i = 0; i < m; i++) {
-			if (word1.equals(str2[i])) {
-				a = i;
-			}
-			if (word2.equals(str2[i])) {
-				b = i;
-			}
-		}
-		if (a == -1 || b == -1) {
-			System.out.println("error!");
-			//return str
-		} else {
-			//if (a != 0)
-				for (i = 0; i < m; i++) {
-					if ((map[a][i] != 0)&&(map[i][b] != 0)) {
-						System.out.println(str2[i]);
-						wordm=str2[i];
-					}
+	  static String queryBridgeWords(String word1, String word2, int[][] map, String[] str2, int m) {
+			int i, j;
+			String wordm="NULL";
+			// lajiwangdao
+			// wrwree23
+			int a = -1, b = -1;
+			/* 51651 */
+			for (i = 0; i < m; i++) {
+				if (word1.equals(str2[i])) {
+					a = i;
 				}
+				if (word2.equals(str2[i])) {
+					b = i;
+				}
+			}
+			if (a == -1 || b == -1) {
+				System.out.println("error!");
+				wordm="error!";
+			} else {
+				//if (a != 0)
+					for (i = 0; i < m; i++) {
+						if ((map[a][i] != 0)&&(map[i][b] != 0)) {
+							System.out.println(str2[i]);
+							wordm=str2[i];
+						}
+					}
+			}
+			return wordm;
 		}
-		return wordm;
-	}
 
-	@SuppressWarnings("null")
 	static int calcShortestPath(String word1, String word2, int map[][], String str2[], int m) {
 		int i, j;
 		int mappath[][] = new int[m][m];
@@ -54,7 +53,12 @@ public class practice {
 		}
 		if(a==-1||b==-1)
 		{
-			System.out.println("Your input is illegal! Return main!");
+			System.out.println("your input is illegal!Return main!");
+			return -1;
+		}
+		if(a==b)
+		{
+			System.out.println("your input is repeat!Return main!");
 			return -1;
 		}
 		int A[][] = map;
@@ -72,19 +76,19 @@ public class practice {
 					{
 						A[i][j] = A[i][k] + A[k][j];
 						mappath[i][j] = k;
+						//System.out.println(mappath[i][j]);
 					}
 				}
 		}
-		/*
-		for (i = 0; i < m; i++) {
-			for (j = 0; j < m; j++) 
-				System.out.print(A[i][j] + " ");
-			System.out.println("");
-		}
-		*/
 		System.out.println(A[a][b]);
 		z=A[a][b];
-		System.out.print(str2[a]);
+		System.out.println(str2[a]);
+		for(i=0;i<m;i++) {
+			for(j=0;j<m;j++) {			
+				System.out.print(mappath[i][j]+"\t");
+			}
+			System.out.print("\n");
+		}
 		pat(mappath, a, b, str2);
 		return z;
 
@@ -164,7 +168,7 @@ public class practice {
 				tr.add(str1[i]);
 
 			}
-			str2 = new String[str1.length];
+			str2 = new String[tr.size()];
 			for (i = 0; i < str2.length; i++) {
 				str2[i] = tr.pollFirst();
 				if (str2[i] == null)
@@ -182,8 +186,9 @@ public class practice {
 			for (i = 0; i < str1.length; i++) {
 				for (j = 0; j < m; j++) {
 					if (str1[i].equals(str2[j])) {
-						if (mi != -1)
+						if (mi != -1) {
 							map[mi][j]++;
+						}
 						mi = j;
 					}
 				}
@@ -230,6 +235,18 @@ public class practice {
 					System.out.println("input number:\n0.exit\n1.最短路径\n2.桥接词查询\n3.输入桥接词查询\n4.随机游走\n5.输出图");
 					num = cin.nextInt();
 				}
+				/*
+				 * if (num == 2)
+					System.out.println("Please input two words:");
+				{
+					String word3 = "", word4 = "";
+					word3 = cin.next();
+					word4 = cin.next();
+					queryBridgeWords(word3, word4, map, str2, m);
+					System.out.println("input number:\n0.exit\n1.最短路径\n2.桥接词查询\n3.输入桥接词查询\n4.随机游走\n5.输出图");
+					num = cin.nextInt();
+				}
+				 * */
 				// 输入桥接词查询
 				if (num == 3) {
 					System.out.println("Please input a word:");
@@ -264,6 +281,18 @@ public class practice {
 					num = cin.nextInt();
 				}
 				// 输出图
+				/*
+				 * if (num == 2)
+					System.out.println("Please input two words:");
+				{
+					String word3 = "", word4 = "";
+					word3 = cin.next();
+					word4 = cin.next();
+					queryBridgeWords(word3, word4, map, str2, m);
+					System.out.println("input number:\n0.exit\n1.最短路径\n2.桥接词查询\n3.输入桥接词查询\n4.随机游走\n5.输出图");
+					num = cin.nextInt();
+				}
+				 */
 				// shuch
 				if (num == 5) {
 					File file = new File("array.dot"); // 存放数组数据的文件

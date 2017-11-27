@@ -4,14 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.TreeSet;
 
-import org.junit.Before;
 import org.junit.Test;
 
-public class practicewTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
+public class practicew5Test {
 
 	@Test
 	public void testQueryBridgeWords() {
@@ -63,8 +58,9 @@ public class practicewTest {
 				}
 			}
 		}
-		String num=practice.queryBridgeWords("how", "you",map, str2,m);
-		assertEquals("are", num);
+		String fds=practice.queryBridgeWords("haha", "6",map, str2,m);
+		assertEquals("error!", fds);
+
 	}
 
 }

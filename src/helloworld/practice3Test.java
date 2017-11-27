@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.*;
 import java.util.*;
-public class practiceTest {
+public class practice3Test {
 
 	@Before
 	public void setUp() throws Exception {
@@ -54,8 +54,8 @@ public class practiceTest {
 					}
 				}
 			}
-		int num=practice.calcShortestPath("line", "file",map, str2,m);
-		assertEquals(2, num);
+		int num=practice.calcShortestPath("how!$%#", "are561*&",map, str2,m);
+		assertEquals(-1, num);
 		//fail("Not yet implemented");
 		}
 		catch (Exception e) {
